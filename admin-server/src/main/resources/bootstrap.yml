@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: admin-service
+  cloud:
+    nacos:
+      config:
+        server-addr: nacos.5houzi.com
+        file-extension: yaml
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: redis-service

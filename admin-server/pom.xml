@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.vhouzi.abc</groupId>
+        <artifactId>oneabc-admin</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.vhouzi.abc</groupId>
+    <artifactId>admin-server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>admin-server</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <springcloud-nacos-alibaba.version>0.9.0.RELEASE</springcloud-nacos-alibaba.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${springcloud-nacos-alibaba.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${springcloud-nacos-alibaba.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>admin-framework</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>admin-dao</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>oneabc-wechat</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
