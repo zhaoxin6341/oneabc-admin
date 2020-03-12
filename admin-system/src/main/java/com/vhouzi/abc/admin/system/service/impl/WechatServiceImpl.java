@@ -5,7 +5,7 @@ import com.vhouzi.abc.admin.system.domain.wechat.WechatMenu;
 import com.vhouzi.abc.admin.system.mapper.SysWechatMenuMapper;
 import com.vhouzi.abc.admin.system.service.WechatService;
 import com.vhouzi.abc.common.exception.BusinessException;
-import com.vhouzi.abc.wechat.exception.wechat.WechatOutputException;
+import com.vhouzi.abc.common.exception.wechat.WechatOutputException;
 import com.vhouzi.abc.wechat.pojo.ao.menus.WechatCreateDefMenuInput;
 import com.vhouzi.abc.wechat.pojo.ao.menus.WechatCreatePersonalizedMenuInput;
 import com.vhouzi.abc.wechat.pojo.ao.menus.WechatDelPersonalizedMenuInput;
