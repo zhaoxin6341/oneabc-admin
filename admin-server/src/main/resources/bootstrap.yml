@@ -6,6 +6,7 @@ spring:
       config:
         server-addr: nacos.5houzi.com
         file-extension: yaml
+        namespace: @nacos.config.namespace@
 dubbo:
   registry:
     address: spring-cloud://localhost

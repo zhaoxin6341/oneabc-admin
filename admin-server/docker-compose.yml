@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  redis-server:
+    image: harbor.5houzi.com/oneabc/admin-server:${BUILD_VERSION}
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    networks:
+      - oneabc-net
+      - nacos-net
+      - proxy-net
+
+
+networks:
+  oneabc-net:
+    external: true
+  nacos-net:
+    external: true
+  proxy-net:
+    external: true

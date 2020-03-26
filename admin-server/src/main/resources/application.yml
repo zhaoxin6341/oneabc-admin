@@ -4,5 +4,6 @@ spring:
       discovery:
         server-addr: nacos.5houzi.com
         register-enabled: false
+        namespace: @nacos.config.namespace@
   profiles:
-    active: dev
+    active: @env@

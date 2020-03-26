@@ -28,6 +28,9 @@
         <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
         <mybatis.boot.version>1.3.2</mybatis.boot.version>
         <oneabc.version>0.0.1-SNAPSHOT</oneabc.version>
+        <maven.test.skip>true</maven.test.skip>
+        <docker.image.prefix>oneabc</docker.image.prefix>
+        <docker.repository>harbor.5houzi.com</docker.repository>
     </properties>
 
     <dependencies>
@@ -100,4 +103,33 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+                <dubbo.protocol.port>-1</dubbo.protocol.port>
+                <nacos.config.namespace>7c78d546-1213-414f-8a5a-af06407e1b7c</nacos.config.namespace>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <dubbo.protocol.port>28701</dubbo.protocol.port>
+                <nacos.config.namespace>95474593-4a54-4def-992e-54d27039414f</nacos.config.namespace>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+                <dubbo.protocol.port>28701</dubbo.protocol.port>
+                <nacos.config.namespace></nacos.config.namespace>
+            </properties>
+        </profile>
+    </profiles>
 </project>
