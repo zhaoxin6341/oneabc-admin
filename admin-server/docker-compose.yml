@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  redis-server:
+  admin-server:
     image: harbor.5houzi.com/oneabc/admin-server:${BUILD_VERSION}
     deploy:
       replicas: 2
