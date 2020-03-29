@@ -2,8 +2,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.5houzi.com
+        server-addr: https://nacos.5houzi.com/
         register-enabled: false
         namespace: @nacos.config.namespace@
   profiles:
     active: @env@
+logging:
+  config: classpath:logback-spring.xml

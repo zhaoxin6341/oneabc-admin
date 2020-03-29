@@ -1,13 +1,13 @@
 package com.vhouzi.abc.admin.server.system;
 
 import com.vhouzi.abc.admin.framework.web.base.BaseController;
-import com.vhouzi.abc.admin.notification.domain.SmsTpl;
 import com.vhouzi.abc.admin.server.service.ISysSmsTemplateService;
 import com.vhouzi.abc.common.annotation.Log;
 import com.vhouzi.abc.common.base.AjaxResult;
 import com.vhouzi.abc.common.enums.BusinessType;
 import com.vhouzi.abc.common.page.TableDataInfo;
 import com.vhouzi.abc.common.utils.poi.ExcelUtil;
+import com.vhouzi.abc.notification.common.vo.SmsTplVo;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,10 +44,10 @@ public class SysSmsTemplateController extends BaseController
 	@RequiresPermissions("message:sysSmsTemplate:list")
 	@PostMapping("/list")
 	@ResponseBody
-	public TableDataInfo list(SmsTpl sysSmsTemplate)
+	public TableDataInfo list(SmsTplVo sysSmsTemplate)
 	{
 		startPage();
-        List<SmsTpl> list = sysSmsTemplateService.selectSysSmsTemplateList(sysSmsTemplate);
+        List<SmsTplVo> list = sysSmsTemplateService.selectSysSmsTemplateList(sysSmsTemplate);
 		return getDataTable(list);
 	}
 	
@@ -58,10 +58,10 @@ public class SysSmsTemplateController extends BaseController
 	@RequiresPermissions("message:sysSmsTemplate:export")
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(SmsTpl sysSmsTemplate)
+    public AjaxResult export(SmsTplVo sysSmsTemplate)
     {
-    	List<SmsTpl> list = sysSmsTemplateService.selectSysSmsTemplateList(sysSmsTemplate);
-        ExcelUtil<SmsTpl> util = new ExcelUtil<SmsTpl>(SmsTpl.class);
+    	List<SmsTplVo> list = sysSmsTemplateService.selectSysSmsTemplateList(sysSmsTemplate);
+        ExcelUtil<SmsTplVo> util = new ExcelUtil<SmsTplVo>(SmsTplVo.class);
         return util.exportExcel(list, "sysSmsTemplate");
     }
 	
@@ -81,9 +81,10 @@ public class SysSmsTemplateController extends BaseController
 	@Log(title = "短信模板", businessType = BusinessType.INSERT)
 	@PostMapping("/add")
 	@ResponseBody
-	public AjaxResult addSave(SmsTpl sysSmsTemplate)
-	{		
-		return toAjax(sysSmsTemplateService.insertSysSmsTemplate(sysSmsTemplate));
+	public AjaxResult addSave(SmsTplVo sysSmsTemplate)
+	{
+		Long id = sysSmsTemplateService.insertSysSmsTemplate(sysSmsTemplate);
+		return toAjax(id > 0 ? 1 : 0);
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class SysSmsTemplateController extends BaseController
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Long id, ModelMap mmap)
 	{
-		SmsTpl sysSmsTemplate = sysSmsTemplateService.selectSysSmsTemplateById(id);
+		SmsTplVo sysSmsTemplate = sysSmsTemplateService.selectSysSmsTemplateById(id);
 		mmap.put("sysSmsTemplate", sysSmsTemplate);
 	    return prefix + "/edit";
 	}
@@ -104,7 +105,7 @@ public class SysSmsTemplateController extends BaseController
 	@Log(title = "短信模板", businessType = BusinessType.UPDATE)
 	@PostMapping("/edit")
 	@ResponseBody
-	public AjaxResult editSave(SmsTpl sysSmsTemplate)
+	public AjaxResult editSave(SmsTplVo sysSmsTemplate)
 	{		
 		return toAjax(sysSmsTemplateService.updateSysSmsTemplate(sysSmsTemplate));
 	}
@@ -123,10 +124,10 @@ public class SysSmsTemplateController extends BaseController
 	
 	@PostMapping("/checkTemplateIdUnique")
     @ResponseBody
-    public String checkTemplateIdUnique(SmsTpl smsTemplate)
+    public String checkTemplateIdUnique(SmsTplVo smsTemplate)
     {
         String uniqueFlag = "0";
-		SmsTpl template = sysSmsTemplateService.selectSysSmsTemplateById(smsTemplate.getId());
+		SmsTplVo template = sysSmsTemplateService.selectSysSmsTemplateById(smsTemplate.getId());
         if(template!=null){
         	uniqueFlag = "1";
         }

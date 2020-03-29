@@ -1,6 +1,6 @@
 package com.vhouzi.abc.admin.server.service;
 
-import com.vhouzi.abc.admin.notification.domain.SmsTpl;
+import com.vhouzi.abc.notification.common.vo.SmsTplVo;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface ISysSmsTemplateService
      * @param id 短信模板ID
      * @return 短信模板信息
      */
-	public SmsTpl selectSysSmsTemplateById(Long id);
+	public SmsTplVo selectSysSmsTemplateById(Long id);
 
 	/**
      * 查询短信模板列表
@@ -26,7 +26,7 @@ public interface ISysSmsTemplateService
      * @return 短信模板集合
 	 * @param sysSmsTemplate
      */
-	public List<SmsTpl> selectSysSmsTemplateList(SmsTpl sysSmsTemplate);
+	public List<SmsTplVo> selectSysSmsTemplateList(SmsTplVo sysSmsTemplate);
 	
 	/**
      * 新增短信模板
@@ -34,7 +34,7 @@ public interface ISysSmsTemplateService
      * @param sysSmsTemplate 短信模板信息
      * @return 结果
      */
-	public int insertSysSmsTemplate(SmsTpl sysSmsTemplate);
+	public Long insertSysSmsTemplate(SmsTplVo sysSmsTemplate);
 	
 	/**
      * 修改短信模板
@@ -42,7 +42,7 @@ public interface ISysSmsTemplateService
      * @param sysSmsTemplate 短信模板信息
      * @return 结果
      */
-	public int updateSysSmsTemplate(SmsTpl sysSmsTemplate);
+	public int updateSysSmsTemplate(SmsTplVo sysSmsTemplate);
 		
 	/**
      * 删除短信模板信息

@@ -33,16 +33,6 @@
             <artifactId>admin-framework</artifactId>
             <version>${oneabc.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.vhouzi.abc</groupId>
-            <artifactId>admin-dao</artifactId>
-            <version>${oneabc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vhouzi.abc</groupId>
-            <artifactId>oneabc-wechat</artifactId>
-            <version>${oneabc.version}</version>
-        </dependency>
     </dependencies>
 
     <build>

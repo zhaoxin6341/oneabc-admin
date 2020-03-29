@@ -21,17 +21,22 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-dubbo</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.csp</groupId>-->
-<!--            <artifactId>sentinel-apache-dubbo-adapter</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-apache-dubbo-adapter</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.vhouzi.abc</groupId>
             <artifactId>redis-client</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>notification-client</artifactId>
             <version>${oneabc.version}</version>
         </dependency>
         <dependency>
@@ -41,22 +46,9 @@
         </dependency>
         <dependency>
             <groupId>com.vhouzi.abc</groupId>
-            <artifactId>oneabc-wechat</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>promote-wechat</artifactId>
+            <version>${oneabc.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>repo-snapshot</name>
-            <url>http://47.97.97.59:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>releases</id>
-            <name>repo-release</name>
-            <url>http://47.97.97.59:8081/repository/maven-releases/</url>
-        </repository>
-    </distributionManagement>
 </project>

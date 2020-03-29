@@ -1,10 +1,10 @@
 package com.vhouzi.abc.admin.server.service.impl;
 
-import com.vhouzi.abc.admin.notification.domain.SmsTpl;
-import com.vhouzi.abc.admin.notification.mapper.SmsTplMapper;
 import com.vhouzi.abc.admin.server.service.ISysSmsTemplateService;
-import com.vhouzi.abc.common.support.Convert;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.vhouzi.abc.common.utils.ResultWrapperUtil;
+import com.vhouzi.abc.notification.client.INotificationServiceProvider;
+import com.vhouzi.abc.notification.common.vo.*;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +18,9 @@ import java.util.List;
 @Service
 public class SysSmsTemplateServiceImpl implements ISysSmsTemplateService
 {
-	@Autowired
-	private SmsTplMapper sysSmsTemplateMapper;
+	@Reference(version = "1.0.0", group = "notify-group")
+	private INotificationServiceProvider notificationServiceProvider;
+
 	/**
      * 查询短信模板信息
      * 
@@ -27,45 +28,50 @@ public class SysSmsTemplateServiceImpl implements ISysSmsTemplateService
      * @return 短信模板信息
      */
     @Override
-	public SmsTpl selectSysSmsTemplateById(Long id)
+	public SmsTplVo selectSysSmsTemplateById(Long id)
 	{
-	    return sysSmsTemplateMapper.selectByPrimaryKey(id);
+		FindSmsTplByIdInput findSmsTplByIdInput = new FindSmsTplByIdInput();
+		findSmsTplByIdInput.setSmsTplId(id);
+	    return ResultWrapperUtil.getData(notificationServiceProvider.selectSmsTemplateById(findSmsTplByIdInput));
 	}
 	
 	/**
      * 查询短信模板列表
      * 
      * @return 短信模板集合
-	 * @param sysSmsTemplate
+	 * @param cond
      */
 	@Override
-	public List<SmsTpl> selectSysSmsTemplateList(SmsTpl sysSmsTemplate)
+	public List<SmsTplVo> selectSysSmsTemplateList(SmsTplVo cond)
 	{
-	    return sysSmsTemplateMapper.listByObj(sysSmsTemplate);
+	    FindSmsTplListOutput findSmsTplListOutput =  ResultWrapperUtil.getData(notificationServiceProvider.selectSmsTemplateList(cond));
+	    return findSmsTplListOutput == null ? null : findSmsTplListOutput.getSmsTplList();
 	}
 	
     /**
      * 新增短信模板
      * 
-     * @param sysSmsTemplate 短信模板信息
+     * @param newSmsTpl 短信模板信息
      * @return 结果
      */
 	@Override
-	public int insertSysSmsTemplate(SmsTpl sysSmsTemplate)
+	public Long insertSysSmsTemplate(SmsTplVo newSmsTpl)
 	{
-	    return sysSmsTemplateMapper.insert(sysSmsTemplate);
+	    InsertSmsTplOutput insertSmsTplOutput = ResultWrapperUtil.getData(notificationServiceProvider.insertSmsTemplate(newSmsTpl));
+	    return insertSmsTplOutput == null ? 0 : insertSmsTplOutput.getId();
 	}
 	
 	/**
      * 修改短信模板
      * 
-     * @param sysSmsTemplate 短信模板信息
+     * @param updSmsTpl 短信模板信息
      * @return 结果
      */
 	@Override
-	public int updateSysSmsTemplate(SmsTpl sysSmsTemplate)
+	public int updateSysSmsTemplate(SmsTplVo updSmsTpl)
 	{
-	    return sysSmsTemplateMapper.updateByPrimaryKey(sysSmsTemplate);
+	    UpdateSmsTplOutput updateSmsTplOutput = ResultWrapperUtil.getData(notificationServiceProvider.updateSmsTemplate(updSmsTpl));
+	    return updateSmsTplOutput == null ? 0 : updateSmsTplOutput.getCnt();
 	}
 
 	/**
@@ -77,6 +83,9 @@ public class SysSmsTemplateServiceImpl implements ISysSmsTemplateService
 	@Override
 	public int deleteSysSmsTemplateByIds(String ids)
 	{
-		return sysSmsTemplateMapper.deleteSysSmsTemplateByIds(Convert.toStrArray(ids));
+		DelSmsTplByIdsInput delSmsTplByIdsInput = new DelSmsTplByIdsInput();
+		delSmsTplByIdsInput.setIds(ids);
+		DelSmsTplByIdsOutput delSmsTplByIdsOutput = ResultWrapperUtil.getData(notificationServiceProvider.deleteSmsTemplateByIds(delSmsTplByIdsInput));
+		return delSmsTplByIdsOutput == null ? 0 : delSmsTplByIdsOutput.getCnt();
 	}
 }
