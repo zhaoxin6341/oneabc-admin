@@ -2,7 +2,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: https://nacos.5houzi.com/
+        server-addr: @nacos.server.address@
         register-enabled: false
         namespace: @nacos.config.namespace@
   profiles:

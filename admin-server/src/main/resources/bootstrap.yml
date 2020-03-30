@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: https://nacos.5houzi.com
+        server-addr: @nacos.server.address@
         file-extension: yaml
         namespace: @nacos.config.namespace@
 dubbo:
