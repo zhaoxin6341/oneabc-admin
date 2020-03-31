@@ -3,7 +3,7 @@ services:
   admin-server:
     image: harbor.5houzi.com/oneabc/admin-server:${BUILD_VERSION}
     deploy:
-      replicas: 2
+      replicas: 1
       restart_policy:
         condition: on-failure
         max_attempts: 3
