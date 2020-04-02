@@ -12,6 +12,9 @@ services:
         - "traefik.http.routers.admin-server.rule=Host(`bms.5houzi.com`)"
         - "traefik.http.routers.admin-server.entrypoints=web"
         - "traefik.http.services.admin-server.loadbalancer.server.port=8080"
+    labels:
+      - "aliyun.logs.admin-server-log=stdout"
+      #- "aliyun.logs.admin-server-nacos-log=/root/logs/nacos/*.log"
     networks:
       - oneabc-net
       - nacos-net
