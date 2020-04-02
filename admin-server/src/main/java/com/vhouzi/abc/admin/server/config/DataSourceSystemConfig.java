@@ -48,7 +48,7 @@ public class DataSourceSystemConfig {
             resources[i] = quartzResources[j];
         }
         bean.setMapperLocations(resources);
-        bean.setTypeAliasesPackage("com.vhouzi.abc.quartz.domain,com.vhouzi.abc.admin.system.domain");
+        bean.setTypeAliasesPackage("com.vhouzi.abc.admin.system.domain,com.vhouzi.abc.quartz.domain");
         return bean.getObject();
     }
 
