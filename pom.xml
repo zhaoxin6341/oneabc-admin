@@ -111,8 +111,8 @@
             <properties>
                 <env>dev</env>
                 <dubbo.protocol.port>-1</dubbo.protocol.port>
-                <nacos.config.namespace>7c78d546-1213-414f-8a5a-af06407e1b7c</nacos.config.namespace>
-                <nacos.config.namespace.name>DEV</nacos.config.namespace.name>
+                <nacos.config.namespace>95474593-4a54-4def-992e-54d27039414f</nacos.config.namespace>
+                <nacos.config.namespace.name>TEST</nacos.config.namespace.name>
                 <nacos.server.address>47.102.111.227</nacos.server.address>
             </properties>
         </profile>
