@@ -1,13 +1,13 @@
 package com.vhouzi.abc.admin.system.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.vhouzi.abc.admin.system.model.SysDictDataModel;
 import com.vhouzi.abc.common.support.Convert;
 import com.vhouzi.abc.admin.system.domain.SysDictData;
 import com.vhouzi.abc.admin.system.mapper.SysDictDataMapper;
 import com.vhouzi.abc.admin.system.service.ISysDictDataService;
 import com.vhouzi.abc.redis.client.IRedisServiceProvider;
-import com.vhouzi.abc.redis.common.vo.SysDictDataInput;
+import com.vhouzi.abc.redis.common.constant.CacheEnum;
+import com.vhouzi.abc.redis.common.constant.CacheKeyPrefixEnum;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -121,10 +121,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     @Override
     public int insertDictData(SysDictData dictData)
     {
-        SysDictDataInput sysDictDataInput = new SysDictDataInput();
-        BeanUtil.copyProperties(dictData, sysDictDataInput);
-        redisService.refreshDict(sysDictDataInput);
-        return dictDataMapper.insertDictData(dictData);
+        int n = dictDataMapper.insertDictData(dictData);
+        redisService.evictInCache(CacheEnum.CACHE_SYS_DICT.getValue(),
+                CacheKeyPrefixEnum.PREFIX_SYS_DICT_TYPE.getValue()+dictData.getDictType());
+        return n;
     }
 
     /**
@@ -136,10 +136,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     @Override
     public int updateDictData(SysDictData dictData)
     {
-        SysDictDataInput sysDictDataInput = new SysDictDataInput();
-        BeanUtil.copyProperties(dictData, sysDictDataInput);
-        redisService.refreshDict(sysDictDataInput);
-        return dictDataMapper.updateDictData(dictData);
+        int n = dictDataMapper.updateDictData(dictData);
+        redisService.evictInCache(CacheEnum.CACHE_SYS_DICT.getValue(),
+                CacheKeyPrefixEnum.PREFIX_SYS_DICT_TYPE.getValue()+dictData.getDictType());
+        return n;
     }
 
     @Override
