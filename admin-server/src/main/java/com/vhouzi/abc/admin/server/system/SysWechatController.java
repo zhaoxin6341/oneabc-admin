@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/system/wechat/test")
+@RequestMapping("/system/wechat")
 public class SysWechatController extends BaseController {
     @Autowired
     private WechatCustomMenusService wechatCustomMenusService;

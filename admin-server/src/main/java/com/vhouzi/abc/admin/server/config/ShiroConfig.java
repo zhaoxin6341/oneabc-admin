@@ -329,8 +329,8 @@ public class ShiroConfig
         // Shiro连接约束配置，即过滤链的定义
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 对静态资源设置匿名访问
+        filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/favicon.ico**", "anon");
-        filterChainDefinitionMap.put("/yiran.png**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/docs/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
@@ -345,14 +345,10 @@ public class ShiroConfig
         //demo不需要拦截
         filterChainDefinitionMap.put("/weChat/**", "anon");
         filterChainDefinitionMap.put("/bankapp/**", "anon");
-        //获取license
-        filterChainDefinitionMap.put("/license/**", "anon");
         // 退出 logout地址，shiro去清除session
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问
         filterChainDefinitionMap.put("/login", "anon,captchaValidate");
-        filterChainDefinitionMap.put("/public/weixin/**", "anon");
-        filterChainDefinitionMap.put("/public/jssdk/weixin/**", "anon");
         filterChainDefinitionMap.put("/open/**", "anon");//无需任何权限接口
         filterChainDefinitionMap.put("/jwt/**", "anon");//JWT权限接口,拦截器处理
         filterChainDefinitionMap.put("/api/yiran/**", "anon");//JWT权限接口,拦截器处理
@@ -361,8 +357,7 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/v2/api-docs", "anon");
         filterChainDefinitionMap.put("/swagger-ui.html", "anon");
         filterChainDefinitionMap.put("/wechatMall/**", "anon");
-        filterChainDefinitionMap.put("/wxMoveCar/**", "anon");
-        filterChainDefinitionMap.put("/system/wechat/test/**", "anon");
+        filterChainDefinitionMap.put("/system/wechat/**", "anon");
         
         //微信公众号认证号文件访问路径
         filterChainDefinitionMap.put("/MP_verify_LPKwHqIAYcdGMt9d.txt", "anon");
