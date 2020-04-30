@@ -12,7 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author yiran
  */
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class  })
-@MapperScan({"com.vhouzi.abc.*.mapper", "com.vhouzi.abc.admin.*.mapper"})
+@MapperScan({"com.vhouzi.abc.admin.*.mapper"})
 @EnableDiscoveryClient
 public class AdminApplication
 {
