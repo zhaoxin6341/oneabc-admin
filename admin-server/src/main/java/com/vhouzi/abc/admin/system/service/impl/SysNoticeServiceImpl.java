@@ -27,7 +27,7 @@ public class SysNoticeServiceImpl implements ISysNoticeService {
 
     @Override
     public List<SysNotice> selectNoticeList(SysNotice notice) {
-        return ResultWrapperUtil.getData(sysNoticeDaoProvider.selectNoticeList(notice));
+        return ResultWrapperUtil.getPageData(sysNoticeDaoProvider.selectNoticeList(notice));
     }
 
     @Override

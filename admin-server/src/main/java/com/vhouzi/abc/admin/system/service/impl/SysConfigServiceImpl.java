@@ -34,7 +34,7 @@ public class SysConfigServiceImpl implements ISysConfigService {
 
     @Override
     public List<SysConfig> selectConfigList(SysConfig config) {
-        return ResultWrapperUtil.getData(sysConfigDaoProvider.selectConfigList(config));
+        return ResultWrapperUtil.getPageData(sysConfigDaoProvider.selectConfigList(config));
     }
 
     @Override

@@ -27,7 +27,7 @@ public class SysLogininforServiceImpl implements ISysLogininforService {
 
     @Override
     public List<SysLogininfor> selectLogininforList(SysLogininfor logininfor) {
-        return ResultWrapperUtil.getData(sysLogininforDaoProvider.selectLogininforList(logininfor));
+        return ResultWrapperUtil.getPageData(sysLogininforDaoProvider.selectLogininforList(logininfor));
     }
 
     @Override

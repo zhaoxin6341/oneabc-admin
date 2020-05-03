@@ -22,7 +22,7 @@ public class SysUserServiceImpl implements ISysUserService {
 
     @Override
     public List<SysUser> selectUserList(SysUser user) {
-        return ResultWrapperUtil.getData(sysUserDaoProvider.selectUserList(user));
+        return ResultWrapperUtil.getPageData(sysUserDaoProvider.selectUserList(user));
     }
 
     @Override

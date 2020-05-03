@@ -42,7 +42,7 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService {
 
     @Override
     public List<SysUserOnline> selectUserOnlineList(SysUserOnline userOnline) {
-        return ResultWrapperUtil.getData(sysUserOnlineDaoProvider.selectUserOnlineList(userOnline));
+        return ResultWrapperUtil.getPageData(sysUserOnlineDaoProvider.selectUserOnlineList(userOnline));
     }
 
     @Override

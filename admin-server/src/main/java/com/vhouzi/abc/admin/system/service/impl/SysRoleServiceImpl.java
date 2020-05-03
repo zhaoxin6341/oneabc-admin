@@ -22,7 +22,7 @@ public class SysRoleServiceImpl implements ISysRoleService {
 
     @Override
     public List<SysRole> selectRoleList(SysRole role) {
-        return ResultWrapperUtil.getData(sysRoleDaoProvider.selectRoleList(role));
+        return ResultWrapperUtil.getPageData(sysRoleDaoProvider.selectRoleList(role));
     }
 
     @Override

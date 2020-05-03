@@ -26,7 +26,7 @@ public class SysOperLogServiceImpl implements ISysOperLogService {
 
     @Override
     public List<SysOperLog> selectOperLogList(SysOperLog operLog) {
-        return ResultWrapperUtil.getData(sysOperLogDaoProvider.selectOperLogList(operLog));
+        return ResultWrapperUtil.getPageData(sysOperLogDaoProvider.selectOperLogList(operLog));
     }
 
     @Override

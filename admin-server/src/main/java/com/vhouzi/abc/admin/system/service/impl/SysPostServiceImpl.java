@@ -21,7 +21,7 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public List<SysPost> selectPostList(SysPost post) {
-        return ResultWrapperUtil.getData(sysPostDaoProvider.selectPostList(post));
+        return ResultWrapperUtil.getPageData(sysPostDaoProvider.selectPostList(post));
     }
 
     @Override

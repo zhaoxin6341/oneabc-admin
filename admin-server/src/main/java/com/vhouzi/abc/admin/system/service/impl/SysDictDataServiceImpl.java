@@ -25,7 +25,7 @@ public class SysDictDataServiceImpl implements ISysDictDataService {
 
     @Override
     public List<SysDictData> selectDictDataList(SysDictData dictData) {
-        return ResultWrapperUtil.getData(sysDictDataDaoProvider.selectDictDataList(dictData));
+        return ResultWrapperUtil.getPageData(sysDictDataDaoProvider.selectDictDataList(dictData));
     }
 
     @Override

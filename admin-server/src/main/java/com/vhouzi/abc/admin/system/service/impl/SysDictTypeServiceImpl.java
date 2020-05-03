@@ -21,7 +21,7 @@ public class SysDictTypeServiceImpl implements ISysDictTypeService {
 
     @Override
     public List<SysDictType> selectDictTypeList(SysDictType dictType) {
-        return ResultWrapperUtil.getData(sysDictTypeDaoProvider.selectDictTypeList(dictType));
+        return ResultWrapperUtil.getPageData(sysDictTypeDaoProvider.selectDictTypeList(dictType));
     }
 
     @Override
