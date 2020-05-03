@@ -142,14 +142,28 @@
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna-platform</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.vhouzi.abc</groupId>
-            <artifactId>admin-system</artifactId>
+            <artifactId>system-client</artifactId>
             <version>${oneabc.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>system-dao-client</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.vhouzi.abc</groupId>
             <artifactId>quartz-client</artifactId>
+            <version>${oneabc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vhouzi.abc</groupId>
+            <artifactId>notification-client</artifactId>
             <version>${oneabc.version}</version>
         </dependency>
     </dependencies>

@@ -17,9 +17,6 @@
 
     <modules>
         <module>admin-server</module>
-        <module>admin-system</module>
-        <module>admin-framework</module>
-        <module>admin-system-dao</module>
     </modules>
 
     <properties>
