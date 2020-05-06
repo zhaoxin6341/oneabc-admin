@@ -15,10 +15,10 @@ services:
 #        - "traefik.tcp.routers.admin-server.rule=HostSNI(`*`)"#测试配置
 #        - "traefik.tcp.routers.admin-server.entrypoints=admin-server"#测试配置
 #        - "traefik.tcp.services.admin-server.loadbalancer.server.port=28715"#测试配置
-    environment:
-      DUBBO_IP_TO_REGISTRY: 101.133.136.18 #测试配置
-      DUBBO_PORT_TO_REGISTRY: 28715 #测试配置
-      DUBBO_PORT_TO_BIND: 28715
+#    environment:
+#      DUBBO_IP_TO_REGISTRY: 101.133.136.18 #测试配置
+#      DUBBO_PORT_TO_REGISTRY: 28715 #测试配置
+#      DUBBO_PORT_TO_BIND: 28715
     labels:
       - "aliyun.logs.admin-server-log=stdout"
       #- "aliyun.logs.admin-server-nacos-log=/root/logs/nacos/*.log"
