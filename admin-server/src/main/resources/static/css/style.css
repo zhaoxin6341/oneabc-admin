@@ -4330,7 +4330,7 @@ body.modal-open {
 }
 /* ERROR & LOGIN & LOCKSCREEN*/
 .middle-box {
-    max-width: 400px;
+    max-width: 475px;
     z-index: 100;
     margin: 0 auto;
     padding-top: 40px;

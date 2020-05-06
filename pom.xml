@@ -106,7 +106,7 @@
                 <dubbo.protocol.port>-1</dubbo.protocol.port>
                 <nacos.config.namespace>95474593-4a54-4def-992e-54d27039414f</nacos.config.namespace>
                 <nacos.config.namespace.name>TEST</nacos.config.namespace.name>
-                <nacos.server.address>47.102.111.227</nacos.server.address>
+                <nacos.server.address>nacos</nacos.server.address>
             </properties>
         </profile>
         <profile>
@@ -116,7 +116,7 @@
                 <dubbo.protocol.port>28701</dubbo.protocol.port>
                 <nacos.config.namespace>95474593-4a54-4def-992e-54d27039414f</nacos.config.namespace>
                 <nacos.config.namespace.name>TEST</nacos.config.namespace.name>
-                <nacos.server.address>192.168.0.19</nacos.server.address>
+                <nacos.server.address>nacos</nacos.server.address>
             </properties>
         </profile>
         <profile>
