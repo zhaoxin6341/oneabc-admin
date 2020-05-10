@@ -33,6 +33,16 @@
         <maven.test.skip>true</maven.test.skip>
         <docker.image.prefix>oneabc</docker.image.prefix>
         <docker.repository>harbor.5houzi.com</docker.repository>
+
+        <jwt.auth0.version>3.2.0</jwt.auth0.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
+        <swagger.version>2.7.0</swagger.version>
+        <pagehelper.boot.version>1.2.5</pagehelper.boot.version>
+        <oshi.version>3.9.1</oshi.version>
+        <mysql.connector.java.version>5.1.41</mysql.connector.java.version>
+        <shiro.version>1.4.0</shiro.version>
+        <thymeleaf.extras.shiro.version>2.0.0</thymeleaf.extras.shiro.version>
+        <bitwalker.version>1.19</bitwalker.version>
     </properties>
 
     <dependencies>

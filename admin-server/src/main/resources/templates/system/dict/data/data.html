@@ -59,7 +59,8 @@
 	<script th:inline="javascript">
 		var editFlag = [[${@permission.hasPermi('system:dict:edit')}]];
 		var removeFlag = [[${@permission.hasPermi('system:dict:remove')}]];
-		var datas = [[${@dict.getType('sys_normal_disable')}]];
+		var sydDatas = [[${@dict.getType('sys_normal_disable')}]];
+		var synDatas = [[${@dict.getType('sys_yes_no')}]];
 		var prefix = ctx + "system/dict/data";
 
 		$(function() {
@@ -97,11 +98,19 @@
 						title: '字典排序'
 					},
 					{
+						field: 'isDefault',
+						title: '是否默认',
+						align: 'center',
+						formatter: function(value, row, index) {
+							return $.table.selectDictLabel(synDatas, value);
+						}
+					},
+					{
 						field: 'status',
 						title: '状态',
 						align: 'center',
 						formatter: function(value, row, index) {
-							return $.table.selectDictLabel(datas, value);
+							return $.table.selectDictLabel(sydDatas, value);
 						}
 					},
 					{
